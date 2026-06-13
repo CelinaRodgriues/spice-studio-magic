@@ -1,228 +1,137 @@
 import { Link } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import heroPure from "@/assets/hero-pure-spices.jpg";
-import heroBlended from "@/assets/hero-blended-spices.jpg";
-import heroSeasoning from "@/assets/hero-seasoning.jpg";
+import { motion } from "framer-motion";
+import dehyugLogo from "@/assets/dehyug-logo.png";
+import pulavProduct from "@/assets/pulav-masala.png.asset.json";
+import rajmaProduct from "@/assets/rajma-masala.png.asset.json";
 import packTurmeric from "@/assets/pack-turmeric.jpg";
 import packGaram from "@/assets/pack-garam.jpg";
 import packFlakes from "@/assets/pack-flakes.jpg";
 
-const slides = [
+const heroProducts = [
   {
-    eyebrow: "Pure Spices · Since 1960",
-    title: "The Soul of",
-    titleItalic: "Indian Spices.",
-    description:
-      "Crafting single-origin powders harvested at peak potency — the founding pillar of every Dehyug kitchen.",
-    cta: "Explore Pure Spices",
-    href: "/products" as const,
-    search: { category: "pure-spices" as const },
-    image: heroPure,
-    pack: packTurmeric,
+    name: "Turmeric Powder",
+    image: packTurmeric,
+    angle: "-rotate-[10deg]",
+    offset: "md:translate-y-8",
+    shadow: "0 18px 40px rgba(0,0,0,0.18)",
   },
   {
-    eyebrow: "Blended Masalas · Heritage Formula",
-    title: "Six Decades of",
-    titleItalic: "Aromatic Mastery.",
-    description:
-      "Heritage masala ratios — biryani, garam, kitchen king — formulated for the precise heat, color and aroma of regional Indian cuisine.",
-    cta: "Discover Blends",
-    href: "/products" as const,
-    search: { category: "blended-spices" as const },
-    image: heroBlended,
-    pack: packGaram,
+    name: "Pulav Masala",
+    image: pulavProduct.url,
+    angle: "-rotate-[4deg]",
+    offset: "md:translate-y-2",
+    shadow: "0 24px 56px rgba(0,0,0,0.22)",
   },
   {
-    eyebrow: "Seasoning · Modern Finishers",
-    title: "Global Notes,",
-    titleItalic: "Indian Soul.",
-    description:
-      "From hand-crushed chilli flakes to coarse melange pepper — finishing touches that elevate every plate.",
-    cta: "Shop Seasoning",
-    href: "/products" as const,
-    search: { category: "seasoning" as const },
-    image: heroSeasoning,
-    pack: packFlakes,
+    name: "Rajma Masala",
+    image: rajmaProduct.url,
+    angle: "rotate-[1deg]",
+    offset: "md:-translate-y-3",
+    shadow: "0 30px 60px rgba(0,0,0,0.24)",
   },
-];
+  {
+    name: "Garam Masala",
+    image: packGaram,
+    angle: "rotate-[6deg]",
+    offset: "md:translate-y-3",
+    shadow: "0 20px 46px rgba(0,0,0,0.18)",
+  },
+  {
+    name: "Chilli Flakes",
+    image: packFlakes,
+    angle: "rotate-[11deg]",
+    offset: "md:translate-y-8",
+    shadow: "0 18px 40px rgba(0,0,0,0.18)",
+  },
+] as const;
 
 export function HeroCarousel() {
-  const [index, setIndex] = useState(0);
-  const [isHovered, setHovered] = useState(false);
-
-  useEffect(() => {
-    if (isHovered) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 6500);
-    return () => clearInterval(id);
-  }, [isHovered]);
-
-  const slide = slides[index];
-
   return (
-    <section
-      className="relative h-screen min-h-[640px] overflow-hidden bg-stone-warm"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Background image cross-fade */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={`bg-${index}`}
-          initial={{ opacity: 0, scale: 1.08 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ opacity: { duration: 1.4, ease: [0.16, 1, 0.3, 1] }, scale: { duration: 7, ease: "linear" } }}
-          className="absolute inset-0"
-        >
-          <img
-            src={slide.image}
-            alt=""
-            className="w-full h-full object-cover"
-            width={1920}
-            height={1080}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-cream/85 via-cream/60 to-cream/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-cream/40 via-transparent to-transparent" />
-        </motion.div>
-      </AnimatePresence>
+    <section className="relative min-h-screen overflow-hidden pt-24 md:pt-28">
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, #22b8c9 0%, #1aa9bc 56%, #b8e6ea 56.5%, #9ed8de 100%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 0, transparent 34%), radial-gradient(circle at 80% 15%, rgba(255,255,255,0.3) 0, transparent 28%), radial-gradient(circle at 50% 65%, rgba(255,255,255,0.18) 0, transparent 30%)",
+        }}
+      />
 
-      {/* Floating particles */}
-      <FloatingParticles />
+      <div className="relative z-10 container-luxury flex min-h-[calc(100vh-7rem)] flex-col items-center text-center">
+        <motion.img
+          src={dehyugLogo}
+          alt="Dehyug Masala"
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-2 h-auto w-full max-w-[180px] object-contain sm:max-w-[220px] md:mt-4 md:max-w-[280px]"
+        />
 
-      {/* Content */}
-      <div className="relative z-10 h-full container-luxury flex items-center pt-20">
-        <div className="grid lg:grid-cols-12 gap-12 w-full items-center">
-          <div className="lg:col-span-7 max-w-2xl">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`text-${index}`}
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <span className="block text-clay text-eyebrow mb-6">{slide.eyebrow}</span>
-                <h1 className="font-display text-6xl sm:text-7xl md:text-8xl font-light leading-[0.95] mb-8 text-charcoal">
-                  {slide.title}{" "}
-                  <span className="italic">{slide.titleItalic}</span>
-                </h1>
-                <p className="text-base md:text-lg text-charcoal/70 font-light mb-10 max-w-lg leading-relaxed">
-                  {slide.description}
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    to={slide.href}
-                    search={slide.search}
-                    className="group inline-flex items-center gap-3 px-10 py-5 bg-charcoal text-cream text-[11px] uppercase tracking-[0.2em] hover:bg-clay transition-colors"
-                  >
-                    {slide.cta}
-                    <span className="inline-block w-6 h-px bg-cream transition-all group-hover:w-10" />
-                  </Link>
-                  <Link
-                    to="/about"
-                    className="inline-flex items-center px-8 py-5 text-[11px] uppercase tracking-[0.2em] text-charcoal border border-charcoal/20 hover:border-charcoal transition-colors"
-                  >
-                    Our Story
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Floating pack */}
-          <div className="hidden lg:flex lg:col-span-5 justify-center items-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`pack-${index}`}
-                initial={{ opacity: 0, y: 40, rotate: 0 }}
-                animate={{ opacity: 1, y: 0, rotate: 8 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                className="relative animate-float"
-                style={{ willChange: "transform" }}
-              >
-                <div className="absolute -inset-8 bg-clay/10 blur-3xl rounded-full" />
-                <img
-                  src={slide.pack}
-                  alt=""
-                  width={520}
-                  height={520}
-                  className="relative w-[420px] h-[420px] object-cover shadow-luxury rounded-sm"
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-
-      {/* Carousel controls */}
-      <div className="absolute bottom-10 left-0 right-0 z-20 container-luxury flex items-center justify-between">
-        <div className="flex gap-2">
-          {slides.map((s, i) => (
-            <button
-              key={s.eyebrow}
-              onClick={() => setIndex(i)}
-              aria-label={`Slide ${i + 1}`}
-              className="group relative h-[2px] w-12 bg-charcoal/15 overflow-hidden"
+        <div className="mx-auto mt-5 max-w-3xl md:mt-8">
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-3 text-[10px] font-medium uppercase tracking-[0.26em] text-white/90 md:text-[11px]"
+          >
+            Since 1960 • Premium Indian Spice Craft
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto max-w-4xl font-sans text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl"
+          >
+            Direct-sourced masalas and spices, crafted for unforgettable Indian kitchens.
+          </motion.h1>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-5 flex flex-wrap items-center justify-center gap-3 md:mt-6"
+          >
+            <Link
+              to="/products"
+              className="inline-flex min-w-[152px] items-center justify-center bg-charcoal px-7 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-cream transition-colors hover:bg-clay"
             >
-              <span
-                className={`absolute inset-0 origin-left bg-clay transition-transform duration-[6500ms] ease-linear ${
-                  i === index && !isHovered ? "scale-x-100" : "scale-x-0"
-                }`}
-                style={{ transformOrigin: "left" }}
-              />
-              <span
-                className={`absolute inset-0 bg-charcoal transition-opacity ${
-                  i === index ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </button>
-          ))}
+              Shop Now
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex min-w-[152px] items-center justify-center border border-white/55 px-7 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:bg-white/10"
+            >
+              Make Inquiry
+            </Link>
+          </motion.div>
         </div>
-        <div className="hidden md:flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-charcoal/50">
-          <span>{String(index + 1).padStart(2, "0")}</span>
-          <span className="w-8 h-px bg-charcoal/30" />
-          <span>{String(slides.length).padStart(2, "0")}</span>
+
+        <div className="mt-auto flex w-full items-end justify-center gap-2 px-1 pb-8 pt-8 sm:gap-3 md:gap-4 md:px-0 md:pb-10 md:pt-10">
+          {heroProducts.map((product, index) => (
+            <motion.div
+              key={product.name}
+              initial={{ opacity: 0, y: 42 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.18 + index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className={`relative flex-shrink-0 ${product.angle} ${product.offset}`}
+            >
+              <div className="absolute inset-x-5 bottom-2 h-6 rounded-full bg-black/18 blur-2xl" />
+              <img
+                src={product.image}
+                alt={product.name}
+                loading={index > 1 ? "lazy" : "eager"}
+                className="relative h-[120px] w-[80px] rounded-[10px] object-cover object-center sm:h-[160px] sm:w-[108px] md:h-[210px] md:w-[138px] md:rounded-[14px]"
+                style={{ boxShadow: product.shadow }}
+              />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function FloatingParticles() {
-  const particles = Array.from({ length: 18 });
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {particles.map((_, i) => {
-        const size = 2 + (i % 4);
-        const delay = (i * 0.4) % 6;
-        const duration = 8 + (i % 5);
-        const left = (i * 53) % 100;
-        const top = (i * 37) % 100;
-        return (
-          <motion.span
-            key={i}
-            className="absolute rounded-full bg-clay/40"
-            style={{
-              width: size,
-              height: size,
-              left: `${left}%`,
-              top: `${top}%`,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0, 0.7, 0],
-            }}
-            transition={{
-              duration,
-              delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        );
-      })}
-    </div>
   );
 }
