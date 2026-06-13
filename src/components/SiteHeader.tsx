@@ -25,27 +25,23 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-cream/88 backdrop-blur-xl border-b border-border"
-          : "bg-transparent border-b border-transparent"
+          ? "border-b border-white/10 bg-[#0d3d2d]/88 backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="container-luxury flex h-20 items-center justify-between">
         <Link to="/" className="inline-flex items-center">
-          <img
-            src={dehyugLogo}
-            alt="Dehyug Masala"
-            className="h-11 w-auto object-contain md:h-12"
-          />
+          <img src={dehyugLogo} alt="Dehyug Masala" className="h-11 w-auto object-contain md:h-12" />
         </Link>
 
-        <nav className="hidden gap-10 text-[11px] font-medium uppercase tracking-[0.2em] text-charcoal/80 md:flex">
+        <nav className="hidden gap-10 text-[11px] font-medium uppercase tracking-[0.2em] text-cream/80 md:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              activeProps={{ className: "text-clay" }}
-              className="transition-colors hover:text-clay"
+              activeProps={{ className: "text-[#f3c56b]" }}
+              className="transition-colors hover:text-[#f3c56b]"
             >
               {item.label}
             </Link>
@@ -55,14 +51,14 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden border border-charcoal px-5 py-2 text-[10px] uppercase tracking-[0.2em] text-charcoal transition-all hover:bg-charcoal hover:text-cream md:inline-flex"
+            className="hidden border border-cream/35 px-5 py-2 text-[10px] uppercase tracking-[0.2em] text-cream transition-all hover:bg-cream hover:text-[#0d3d2d] md:inline-flex"
           >
             Inquiry
           </Link>
           <button
             aria-label="Menu"
             onClick={() => setOpen(true)}
-            className="-mr-2 p-2 text-charcoal md:hidden"
+            className="-mr-2 p-2 text-cream md:hidden"
           >
             <Menu size={22} strokeWidth={1.5} />
           </button>
@@ -70,10 +66,10 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-cream md:hidden">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-[#0d3d2d] md:hidden">
           <div className="container-luxury flex h-20 items-center justify-between">
             <img src={dehyugLogo} alt="Dehyug Masala" className="h-11 w-auto object-contain" />
-            <button aria-label="Close menu" onClick={() => setOpen(false)} className="-mr-2 p-2">
+            <button aria-label="Close menu" onClick={() => setOpen(false)} className="-mr-2 p-2 text-cream">
               <X size={22} strokeWidth={1.5} />
             </button>
           </div>
@@ -83,7 +79,7 @@ export function SiteHeader() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-3 font-display text-4xl text-charcoal"
+                className="border-b border-white/10 py-3 font-display text-4xl text-cream"
               >
                 {item.label}
               </Link>
