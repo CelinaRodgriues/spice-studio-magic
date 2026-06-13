@@ -31,7 +31,11 @@ export function SiteHeader() {
     >
       <div className="container-luxury flex h-20 items-center justify-between">
         <Link to="/" className="inline-flex items-center">
-          <img src={dehyugLogo} alt="Dehyug Masala" className="h-11 w-auto object-contain md:h-12" />
+          <img
+            src={dehyugLogo}
+            alt="Dehyug Masala"
+            className="h-11 w-auto object-contain md:h-12"
+          />
         </Link>
 
         <nav className="hidden gap-10 text-[11px] font-medium uppercase tracking-[0.2em] text-cream/80 md:flex">
@@ -69,7 +73,11 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-[60] flex flex-col bg-[#0d3d2d] md:hidden">
           <div className="container-luxury flex h-20 items-center justify-between">
             <img src={dehyugLogo} alt="Dehyug Masala" className="h-11 w-auto object-contain" />
-            <button aria-label="Close menu" onClick={() => setOpen(false)} className="-mr-2 p-2 text-cream">
+            <button
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              className="-mr-2 p-2 text-cream"
+            >
               <X size={22} strokeWidth={1.5} />
             </button>
           </div>

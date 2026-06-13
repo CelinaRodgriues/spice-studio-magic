@@ -11,13 +11,33 @@ const marqueeProducts = [
   { name: "Pulav Masala", image: pulavProduct.url, angle: "rotate-[-10deg]", tone: "bg-[#f5efe7]" },
   { name: "Rajma Masala", image: rajmaProduct.url, angle: "rotate-[-4deg]", tone: "bg-[#efe7db]" },
   { name: "Tea Masala", image: teaProduct.url, angle: "rotate-[2deg]", tone: "bg-[#f0e7dc]" },
-  { name: "Sambhar Masala", image: sambharProduct.url, angle: "rotate-[8deg]", tone: "bg-[#eee4d4]" },
-  { name: "Chilli Powder", image: chilliProduct.url, angle: "rotate-[12deg]", tone: "bg-[#efe7db]" },
+  {
+    name: "Sambhar Masala",
+    image: sambharProduct.url,
+    angle: "rotate-[8deg]",
+    tone: "bg-[#eee4d4]",
+  },
+  {
+    name: "Chilli Powder",
+    image: chilliProduct.url,
+    angle: "rotate-[12deg]",
+    tone: "bg-[#efe7db]",
+  },
   { name: "Pulav Masala", image: pulavProduct.url, angle: "rotate-[-10deg]", tone: "bg-[#f5efe7]" },
   { name: "Rajma Masala", image: rajmaProduct.url, angle: "rotate-[-4deg]", tone: "bg-[#efe7db]" },
   { name: "Tea Masala", image: teaProduct.url, angle: "rotate-[2deg]", tone: "bg-[#f0e7dc]" },
-  { name: "Sambhar Masala", image: sambharProduct.url, angle: "rotate-[8deg]", tone: "bg-[#eee4d4]" },
-  { name: "Chilli Powder", image: chilliProduct.url, angle: "rotate-[12deg]", tone: "bg-[#efe7db]" },
+  {
+    name: "Sambhar Masala",
+    image: sambharProduct.url,
+    angle: "rotate-[8deg]",
+    tone: "bg-[#eee4d4]",
+  },
+  {
+    name: "Chilli Powder",
+    image: chilliProduct.url,
+    angle: "rotate-[12deg]",
+    tone: "bg-[#efe7db]",
+  },
 ] as const;
 
 export function HeroCarousel() {
@@ -51,7 +71,8 @@ export function HeroCarousel() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-cream/75 md:text-base"
           >
-            A refined hero inspired by your reference, with product packs flowing continuously from right to left.
+            A refined hero inspired by your reference, with product packs flowing continuously from
+            right to left.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -82,7 +103,9 @@ export function HeroCarousel() {
                 key={`${product.name}-${index}`}
                 className={`flex-shrink-0 ${product.angle} ${index % 2 === 0 ? "translate-y-0" : "translate-y-5 md:translate-y-7"}`}
               >
-                <div className={`relative overflow-hidden rounded-[24px] border border-white/10 ${product.tone} p-4 shadow-[0_26px_70px_rgba(0,0,0,0.35)] md:p-5`}>
+                <div
+                  className={`relative overflow-hidden rounded-[24px] border border-white/10 ${product.tone} p-4 shadow-[0_26px_70px_rgba(0,0,0,0.35)] md:p-5`}
+                >
                   <div className="absolute inset-x-4 bottom-2 h-5 rounded-full bg-black/20 blur-2xl" />
                   <img
                     src={product.image}
