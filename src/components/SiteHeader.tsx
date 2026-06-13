@@ -72,16 +72,8 @@ export function SiteHeader() {
       {open && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-cream md:hidden">
           <div className="container-luxury flex h-20 items-center justify-between">
-            <img
-              src={dehyugLogo}
-              alt="Dehyug Masala"
-              className="h-11 w-auto object-contain"
-            />
-            <button
-              aria-label="Close menu"
-              onClick={() => setOpen(false)}
-              className="-mr-2 p-2"
-            >
+            <img src={dehyugLogo} alt="Dehyug Masala" className="h-11 w-auto object-contain" />
+            <button aria-label="Close menu" onClick={() => setOpen(false)} className="-mr-2 p-2">
               <X size={22} strokeWidth={1.5} />
             </button>
           </div>

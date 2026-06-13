@@ -62,10 +62,7 @@ export function HeroCarousel() {
             "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 0, transparent 34%), radial-gradient(circle at 80% 15%, rgba(255,255,255,0.3) 0, transparent 28%), radial-gradient(circle at 50% 65%, rgba(255,255,255,0.18) 0, transparent 30%)",
         }}
       />
-      <div
-        className="absolute inset-x-0 bottom-[44%] h-px bg-white/28"
-        aria-hidden="true"
-      />
+      <div className="absolute inset-x-0 bottom-[44%] h-px bg-white/28" aria-hidden="true" />
 
       <div className="relative z-10 container-luxury flex min-h-[calc(100vh-6rem)] flex-col items-center justify-between pb-8 text-center md:pb-12">
         <div className="pt-4 md:pt-6">
@@ -102,7 +99,8 @@ export function HeroCarousel() {
             transition={{ duration: 0.9, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/88 md:mt-5 md:text-base"
           >
-            Inspired by your reference, this hero puts the Dehyug identity front and center with a bold product lineup and clean FMCG presence.
+            Inspired by your reference, this hero puts the Dehyug identity front and center with a
+            bold product lineup and clean FMCG presence.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
