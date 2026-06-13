@@ -11,42 +11,22 @@ const marqueeProducts = [
   { name: "Pulav Masala", image: pulavProduct.url, angle: "rotate-[-10deg]", tone: "bg-[#f5efe7]" },
   { name: "Rajma Masala", image: rajmaProduct.url, angle: "rotate-[-4deg]", tone: "bg-[#efe7db]" },
   { name: "Tea Masala", image: teaProduct.url, angle: "rotate-[2deg]", tone: "bg-[#f0e7dc]" },
-  {
-    name: "Sambhar Masala",
-    image: sambharProduct.url,
-    angle: "rotate-[8deg]",
-    tone: "bg-[#eee4d4]",
-  },
-  {
-    name: "Chilli Powder",
-    image: chilliProduct.url,
-    angle: "rotate-[12deg]",
-    tone: "bg-[#efe7db]",
-  },
+  { name: "Sambhar Masala", image: sambharProduct.url, angle: "rotate-[8deg]", tone: "bg-[#eee4d4]" },
+  { name: "Chilli Powder", image: chilliProduct.url, angle: "rotate-[12deg]", tone: "bg-[#efe7db]" },
   { name: "Pulav Masala", image: pulavProduct.url, angle: "rotate-[-10deg]", tone: "bg-[#f5efe7]" },
   { name: "Rajma Masala", image: rajmaProduct.url, angle: "rotate-[-4deg]", tone: "bg-[#efe7db]" },
   { name: "Tea Masala", image: teaProduct.url, angle: "rotate-[2deg]", tone: "bg-[#f0e7dc]" },
-  {
-    name: "Sambhar Masala",
-    image: sambharProduct.url,
-    angle: "rotate-[8deg]",
-    tone: "bg-[#eee4d4]",
-  },
-  {
-    name: "Chilli Powder",
-    image: chilliProduct.url,
-    angle: "rotate-[12deg]",
-    tone: "bg-[#efe7db]",
-  },
+  { name: "Sambhar Masala", image: sambharProduct.url, angle: "rotate-[8deg]", tone: "bg-[#eee4d4]" },
+  { name: "Chilli Powder", image: chilliProduct.url, angle: "rotate-[12deg]", tone: "bg-[#efe7db]" },
 ] as const;
 
 export function HeroCarousel() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0d3d2d] pt-24 text-cream md:pt-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_38%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-[#07291d] via-[#0b3325]/90 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-[44%] bg-gradient-to-t from-[#07291d] via-[#0b3325]/90 to-transparent" />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-[120rem] flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-[140rem] flex-col items-center px-4 text-center sm:px-6 lg:px-8">
         <motion.img
           src={dehyugLogo}
           alt="Dehyug Masala"
@@ -56,7 +36,7 @@ export function HeroCarousel() {
           className="mt-1 h-auto w-full max-w-[160px] object-contain sm:max-w-[190px] md:max-w-[230px]"
         />
 
-        <div className="mx-auto mt-6 max-w-3xl md:mt-8">
+        <div className="mx-auto mt-10 flex max-w-4xl flex-1 flex-col items-center justify-center md:mt-12">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -69,16 +49,15 @@ export function HeroCarousel() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-cream/75 md:text-base"
+            className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-cream/75 md:text-base"
           >
-            A refined hero inspired by your reference, with product packs flowing continuously from
-            right to left.
+            A refined hero inspired by your reference, with product packs flowing continuously from right to left.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 flex flex-wrap items-center justify-center gap-3"
+            className="mt-7 flex flex-wrap items-center justify-center gap-3"
           >
             <Link
               to="/products"
@@ -89,23 +68,21 @@ export function HeroCarousel() {
           </motion.div>
         </div>
 
-        <div className="relative mt-auto w-[120vw] max-w-none overflow-hidden pb-8 pt-10 md:pb-10 md:pt-14">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-[#0d3d2d] via-[#0d3d2d]/90 to-transparent md:w-44" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-[#0d3d2d] via-[#0d3d2d]/90 to-transparent md:w-44" />
+        <div className="relative -mt-8 w-[132vw] max-w-none overflow-hidden pb-8 pt-4 md:-mt-6 md:pb-10 md:pt-6">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-[#0d3d2d] via-[#0d3d2d]/92 to-transparent md:w-48" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-[#0d3d2d] via-[#0d3d2d]/92 to-transparent md:w-48" />
 
           <motion.div
             className="flex w-max items-end gap-5 md:gap-8"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+            transition={{ duration: 28, ease: "linear", repeat: Infinity }}
           >
             {marqueeProducts.map((product, index) => (
               <div
                 key={`${product.name}-${index}`}
                 className={`flex-shrink-0 ${product.angle} ${index % 2 === 0 ? "translate-y-0" : "translate-y-5 md:translate-y-7"}`}
               >
-                <div
-                  className={`relative overflow-hidden rounded-[24px] border border-white/10 ${product.tone} p-4 shadow-[0_26px_70px_rgba(0,0,0,0.35)] md:p-5`}
-                >
+                <div className={`relative overflow-hidden rounded-[24px] border border-white/10 ${product.tone} p-4 shadow-[0_26px_70px_rgba(0,0,0,0.35)] md:p-5`}>
                   <div className="absolute inset-x-4 bottom-2 h-5 rounded-full bg-black/20 blur-2xl" />
                   <img
                     src={product.image}
