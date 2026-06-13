@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import dehyugLogo from "@/assets/dehyug-logo.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -24,26 +25,27 @@ export function SiteHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-cream/85 backdrop-blur-xl border-b border-border"
+          ? "bg-cream/88 backdrop-blur-xl border-b border-border"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container-luxury h-20 flex items-center justify-between">
-        <Link
-          to="/"
-          className="font-display text-2xl tracking-[0.2em] uppercase font-semibold text-charcoal"
-        >
-          Dehyug
+      <div className="container-luxury flex h-20 items-center justify-between">
+        <Link to="/" className="inline-flex items-center">
+          <img
+            src={dehyugLogo}
+            alt="Dehyug Masala"
+            className="h-11 w-auto object-contain md:h-12"
+          />
         </Link>
 
-        <nav className="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.2em] font-medium text-charcoal/80">
+        <nav className="hidden gap-10 text-[11px] font-medium uppercase tracking-[0.2em] text-charcoal/80 md:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
               activeProps={{ className: "text-clay" }}
-              className="hover:text-clay transition-colors"
+              className="transition-colors hover:text-clay"
             >
               {item.label}
             </Link>
@@ -53,42 +55,43 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden md:inline-flex px-5 py-2 border border-charcoal text-[10px] uppercase tracking-[0.2em] text-charcoal hover:bg-charcoal hover:text-cream transition-all"
+            className="hidden border border-charcoal px-5 py-2 text-[10px] uppercase tracking-[0.2em] text-charcoal transition-all hover:bg-charcoal hover:text-cream md:inline-flex"
           >
             Inquiry
           </Link>
           <button
             aria-label="Menu"
             onClick={() => setOpen(true)}
-            className="md:hidden p-2 -mr-2 text-charcoal"
+            className="-mr-2 p-2 text-charcoal md:hidden"
           >
             <Menu size={22} strokeWidth={1.5} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="fixed inset-0 z-[60] bg-cream md:hidden flex flex-col">
-          <div className="container-luxury h-20 flex items-center justify-between">
-            <span className="font-display text-2xl tracking-[0.2em] uppercase font-semibold">
-              Dehyug
-            </span>
+        <div className="fixed inset-0 z-[60] flex flex-col bg-cream md:hidden">
+          <div className="container-luxury flex h-20 items-center justify-between">
+            <img
+              src={dehyugLogo}
+              alt="Dehyug Masala"
+              className="h-11 w-auto object-contain"
+            />
             <button
               aria-label="Close menu"
               onClick={() => setOpen(false)}
-              className="p-2 -mr-2"
+              className="-mr-2 p-2"
             >
               <X size={22} strokeWidth={1.5} />
             </button>
           </div>
-          <nav className="flex flex-col gap-2 px-6 mt-12">
+          <nav className="mt-12 flex flex-col gap-2 px-6">
             {nav.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="font-display text-4xl text-charcoal py-3 border-b border-border"
+                className="border-b border-border py-3 font-display text-4xl text-charcoal"
               >
                 {item.label}
               </Link>
